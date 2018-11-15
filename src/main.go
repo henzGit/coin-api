@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 )
@@ -15,6 +14,7 @@ func main() {
 	router.HandleFunc("/healthcheck", healthCheck).Methods("GET")
 	router.HandleFunc("/message", handleQryMessage).Methods("GET")
 	router.HandleFunc("/m/{msg}", handleUrlMessage).Methods("GET")
+	router.HandleFunc("/coin", handleCoin).Methods("POST")
 
 	headersOk := handlers.AllowedHeaders([]string{"Authorization"})
 	originsOk := handlers.AllowedOrigins([]string{"*"})
@@ -40,4 +40,8 @@ func handleUrlMessage(w http.ResponseWriter, r *http.Request) {
 
 func healthCheck(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode("Still alive!")
+}
+
+func handleCoin(w http.ResponseWriter, r *http.Request) {
+	json.NewEncoder(w).Encode("Try handle coin")
 }
