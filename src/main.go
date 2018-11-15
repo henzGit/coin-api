@@ -42,6 +42,3 @@ func healthCheck(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode("Still alive!")
 }
 
-func handleCoin(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode("Try handle coin")
-}
