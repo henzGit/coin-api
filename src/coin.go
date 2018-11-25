@@ -2,10 +2,27 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
-func handleCoin(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode("Try handle coin2")
+type BidData struct {
+	Coin string `json:"coin"`
+	Amount float32 `json:"amount"`
+	Price float32 `json:"price"`
+	Currency string `json:"currency"`
+}
+
+func handleCoin(w http.ResponseWriter, req *http.Request) {
+	var bidData BidData
+
+	err := json.NewDecoder(req.Body).Decode(&bidData)
+	fmt.Println(bidData)
+
+	if err != nil {
+		panic(err)
+	}
+
+	json.NewEncoder(w).Encode("Try bidding for coin: " + bidData.Coin)
 }
 
