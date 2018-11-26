@@ -1,0 +1,7 @@
+{
+  "coin":"btc",
+  "amount": 0.01,
+  "price": 1000,
+  "currency": "yen",
+  "userId": 1
+}
