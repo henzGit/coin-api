@@ -11,6 +11,7 @@ type BidData struct {
 	Amount float32 `json:"amount"`
 	Price float32 `json:"price"`
 	Currency string `json:"currency"`
+	UserId int `json:"userId"`
 }
 
 func handleCoin(w http.ResponseWriter, req *http.Request) {
@@ -23,6 +24,6 @@ func handleCoin(w http.ResponseWriter, req *http.Request) {
 		panic(err)
 	}
 
-	json.NewEncoder(w).Encode("Try bidding for coin: " + bidData.Coin)
+	json.NewEncoder(w).Encode(bidData)
 }
 

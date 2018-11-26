@@ -14,8 +14,8 @@ func main() {
 	router.HandleFunc("/healthcheck", healthCheck).Methods("GET")
 	router.HandleFunc("/message", handleQryMessage).Methods("GET")
 	router.HandleFunc("/m/{msg}", handleUrlMessage).Methods("GET")
-	router.HandleFunc("/bid-buy", handleCoin).Methods("POST")
 	router.HandleFunc("/hello", handleHello).Methods("POST")
+	router.HandleFunc("/bid-buy", handleCoin).Methods("POST")
 
 	headersOk := handlers.AllowedHeaders([]string{"Authorization"})
 	originsOk := handlers.AllowedOrigins([]string{"*"})
