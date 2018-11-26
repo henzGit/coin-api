@@ -9,3 +9,6 @@ Experimental API to make bids to buy and sell coins
 
 ## How to run:
     go run src/*
+    
+## How to test:
+     curl -X POST -d @data.json -H "Content-Type: application/json" http://localhost:3000/bid-buy
